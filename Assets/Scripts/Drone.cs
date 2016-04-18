@@ -182,7 +182,7 @@ public class Drone : Entity {
 				}
 				
 				//determine if were near the mineral node
-				if ((transform.position - target.gameObject.collider.ClosestPointOnBounds(transform.position)).magnitude < arrivalDist)
+				if ((transform.position - target.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position)).magnitude < arrivalDist)
 				{
 					colony.mineralCount += inventory;
 					inventory = 0;
@@ -250,9 +250,9 @@ public class Drone : Entity {
         {
 			double distance = 0;
 
-			if (immediateTarget.gameObject != null && immediateTarget.gameObject.collider)
+			if (immediateTarget.gameObject != null && immediateTarget.gameObject.GetComponent<Collider>())
 			{
-				distance = (immediateTarget.gameObject.collider.ClosestPointOnBounds(transform.position) - transform.position).magnitude;
+				distance = (immediateTarget.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position) - transform.position).magnitude;
 			}
 			else
 			{

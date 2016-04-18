@@ -87,7 +87,7 @@ public abstract class Entity : MonoBehaviour {
 	{
 		dv = Vector3.zero;
 		Vector3 steer = Vector3.zero;
-		float obRadius = obst.collider.bounds.extents.magnitude + 1;
+		float obRadius = obst.GetComponent<Collider>().bounds.extents.magnitude + 1;
 		float avoidRadius = safeDistance;
 		safeDistance += radius + obRadius;
 
