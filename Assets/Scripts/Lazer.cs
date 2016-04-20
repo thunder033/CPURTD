@@ -15,7 +15,7 @@ public class Lazer : MonoBehaviour, TowerPower {
 	
 	}
 
-    public void Attack ()
+    public void Attack (GameObject closestDrone)
     {
 
     }
