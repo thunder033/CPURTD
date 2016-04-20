@@ -48,12 +48,12 @@
      <Compile Include="Assets\Scripts\BuildSite.cs" />
      <Compile Include="Assets\Scripts\ColonyHub.cs" />
      <Compile Include="Assets\Scripts\ColonyPod.cs" />
-     <Compile Include="Assets\Scripts\Drone.cs" />
      <Compile Include="Assets\Scripts\Entity.cs" />
      <Compile Include="Assets\Scripts\FixedCamera.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Lazer.cs" />
      <Compile Include="Assets\Scripts\MineralNode.cs" />
+     <Compile Include="Assets\Scripts\Minion.cs" />
      <Compile Include="Assets\Scripts\MoveCamera.cs" />
      <Compile Include="Assets\Scripts\Node.cs" />
      <Compile Include="Assets\Scripts\Obstacle.cs" />

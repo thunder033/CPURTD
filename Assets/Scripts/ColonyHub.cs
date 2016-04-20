@@ -139,7 +139,7 @@ public class ColonyHub : MonoBehaviour {
 				GameObject[] drones = GameObject.FindGameObjectsWithTag("Drone");
 				foreach(GameObject drone in drones)
 				{
-					if(drone.GetComponent<Drone>() != null && drone.GetComponent<Drone>().target 
+					if(drone.GetComponent<Minion>() != null && drone.GetComponent<Minion>().target 
 						== mineralNodes[i].GetComponent<Node>())
 					{
 						minerCount++;

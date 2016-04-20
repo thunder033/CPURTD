@@ -7,12 +7,12 @@ public enum Task
 {
 	None,
     Explore,
-	Gather,
+	Attack,
 	Build,
 	DropOff
 }
 
-public class Drone : Entity {
+public class Minion : Entity {
 
 	public float carryCapacity;
 	public float inventory;
@@ -39,7 +39,7 @@ public class Drone : Entity {
 	public Task task;
 	private Path path;
 
-	private ColonyHub colony;
+	private ColonyHub GM;
 
 	private GameObject[] obstacles;
 
@@ -60,7 +60,7 @@ public class Drone : Entity {
 
 		base.Start();
 		//gm = GameObject.Find("MainGO").GetComponent<GameManager>();
-		colony = GameObject.Find("ColonyHub").GetComponent<ColonyHub>();
+		GM = GameObject.Find("GameManager").GetComponent<ColonyHub>();
 		obstacles = GameObject.FindGameObjectsWithTag("Solid");
 
 		task = Task.None;
@@ -102,15 +102,15 @@ public class Drone : Entity {
 			//If we don't have a task, determine one
 			case Task.None:
 				//check if we can build a colony pod
-				if(colony.mineralCount >= ColonyHub.ColonyPodCost)
+				if(GM.mineralCount >= ColonyHub.ColonyPodCost)
 				{
 					task = Task.Build;
 				}
 				//if not find an open resource node
-				else if ((mineralNode = colony.GetOpenMineralNode()) != null)
+				else if ((mineralNode = GM.GetOpenMineralNode()) != null)
 				{
 					target = mineralNode.GetComponent<Node>();
-					task = Task.Gather;
+					task = Task.Attack;
 				}
 				//if there's no known nodes, explore
 				else
@@ -138,11 +138,11 @@ public class Drone : Entity {
 
 					do
 					{
-						newBs = colony.buildSites[siteIndex];
+						newBs = GM.buildSites[siteIndex];
 						buildSite = newBs.GetComponent<BuildSite>();
 						target = newBs.GetComponent<Node>();
 
-						if (++siteIndex >= colony.buildSites.Length)
+						if (++siteIndex >= GM.buildSites.Length)
 						{
 							Application.LoadLevel(0);
 						}
@@ -153,10 +153,10 @@ public class Drone : Entity {
 				//if we have a build site, check if were close enough to it
 				else if((transform.position - buildSite.transform.position).magnitude < arrivalDist)
 				{
-					if(colony.mineralCount >= ColonyHub.ColonyPodCost)
+					if(GM.mineralCount >= ColonyHub.ColonyPodCost)
 					{
 						GameObject.Instantiate(Resources.Load("ColonyPod", typeof(GameObject)), buildSite.transform.position, Quaternion.identity);
-						colony.mineralCount -= ColonyHub.ColonyPodCost;
+						GM.mineralCount -= ColonyHub.ColonyPodCost;
 						buildSite.constructed = true;
 					}
 					else
@@ -176,21 +176,21 @@ public class Drone : Entity {
 			//DropOff
 			case Task.DropOff:
 				//we're only ever going to drop off resources at the colonyHub
-				if(target != colony.GetComponent<Node>())
+				if(target != GM.GetComponent<Node>())
 				{
-					target = colony.GetComponent<Node>();
+					target = GM.GetComponent<Node>();
 				}
 				
 				//determine if were near the mineral node
 				if ((transform.position - target.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position)).magnitude < arrivalDist)
 				{
-					colony.mineralCount += inventory;
+					GM.mineralCount += inventory;
 					inventory = 0;
 					task = Task.None;
 				}
 				break;
 			//Gather
-			case Task.Gather:
+			case Task.Attack:
 				//if we have a mineral node and our inventory isn't full
 				if(target.GetComponent<MineralNode>() != null && inventory < carryCapacity)
 				{
@@ -213,9 +213,9 @@ public class Drone : Entity {
 				else if (target.GetComponent<MineralNode>() == null && target.GetComponent<ColonyHub>() == null)
 				{
 					//find one or explore
-					if ((target = colony.GetOpenMineralNode().GetComponent<Node>()) != null)
+					if ((target = GM.GetOpenMineralNode().GetComponent<Node>()) != null)
 					{
-						task = Task.Gather;
+						task = Task.Attack;
 					}
 					else
 					{
@@ -226,7 +226,7 @@ public class Drone : Entity {
 				else if (inventory >= carryCapacity)
 				{
 					//return to base
-					target = colony.GetComponent<Node>();
+					target = GM.GetComponent<Node>();
 					task = Task.DropOff;
 				}
 				break;
@@ -467,9 +467,9 @@ public class Drone : Entity {
 		//---------------------------------------------------------
 
 		//avoid obstacles
-        for (int i = 0; i < colony.obstacles.Length; i++)
+        for (int i = 0; i < GM.obstacles.Length; i++)
 		{
-			force += avoidWt * AvoidObstacle(colony.obstacles[i], avoidDist);
+			force += avoidWt * AvoidObstacle(GM.obstacles[i], avoidDist);
 		}
 
 		//limit force to maxForce and apply
