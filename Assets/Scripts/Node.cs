@@ -117,7 +117,7 @@ public class Node : MonoBehaviour {
 
 	public static void ResetAllNodeHeuristics()
 	{
-		Node[] nodes = Component.FindObjectsOfType<Node>();
+        Node[] nodes = UnityEngine.Component.FindObjectsOfType<Node>();
 
 		for(int f = 0; f < nodes.Length; f++)
 		{

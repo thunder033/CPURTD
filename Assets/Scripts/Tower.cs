@@ -34,7 +34,7 @@ public class Tower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (curState == TowerState.notShooting)
+        if (curState == TowerState.notShooting && manager.minions.Count() > 0)
         {
             GameObject closestDrone = manager.minions.OrderBy(a => Vector3.Distance(a.transform.position, gameObject.transform.position)).First();
             if (closestDrone != null && (Vector3.Distance(closestDrone.transform.position, gameObject.transform.position)) <= range)

@@ -15,7 +15,7 @@ public enum Task
 public class Minion : Entity {
 
 	public float carryCapacity;
-	public float inventory;
+	public float attack;
 
 	private BuildSite buildSite;
 
@@ -61,7 +61,7 @@ public class Minion : Entity {
 		base.Start();
 		//gm = GameObject.Find("MainGO").GetComponent<GameManager>();
 		GM = GameObject.Find("GameManager").GetComponent<ColonyHub>();
-		obstacles = GameObject.FindGameObjectsWithTag("Solid");
+        obstacles = GameObject.FindGameObjectsWithTag("Solid");
 
 		task = Task.None;
 
@@ -92,7 +92,7 @@ public class Minion : Entity {
 			stuckCount = 0;
 		}
 		prevPos = transform.position;
-		GameObject mineralNode;
+		GameObject targetComponent;
 
 		//if the drone has a task
 		switch (task)
@@ -101,15 +101,11 @@ public class Minion : Entity {
 
 			//If we don't have a task, determine one
 			case Task.None:
-				//check if we can build a colony pod
-				if(GM.mineralCount >= ColonyHub.ColonyPodCost)
-				{
-					task = Task.Build;
-				}
+			
 				//if not find an open resource node
-				else if ((mineralNode = GM.GetOpenMineralNode()) != null)
+				if ((targetComponent = GM.GetTargetComponent()) != null)
 				{
-					target = mineralNode.GetComponent<Node>();
+					target = targetComponent.GetComponent<Node>();
 					task = Task.Attack;
 				}
 				//if there's no known nodes, explore
@@ -127,93 +123,26 @@ public class Minion : Entity {
 
 				//if we arrive at a newly discovered node, end explore task
 				break;
-			//Build
-			case Task.Build:
-				//determine a build site if we don't have one
-				if(buildSite == null)
-				{
-
-					int siteIndex = 0;
-					GameObject newBs = null;
-
-					do
-					{
-						newBs = GM.buildSites[siteIndex];
-						buildSite = newBs.GetComponent<BuildSite>();
-						target = newBs.GetComponent<Node>();
-
-						if (++siteIndex >= GM.buildSites.Length)
-						{
-							Application.LoadLevel(0);
-						}
-					} while (newBs.GetComponent<BuildSite>().assigned);
-
-					newBs.GetComponent<BuildSite>().assigned = true;
-				}
-				//if we have a build site, check if were close enough to it
-				else if((transform.position - buildSite.transform.position).magnitude < arrivalDist)
-				{
-					if(GM.mineralCount >= ColonyHub.ColonyPodCost)
-					{
-						GameObject.Instantiate(Resources.Load("ColonyPod", typeof(GameObject)), buildSite.transform.position, Quaternion.identity);
-						GM.mineralCount -= ColonyHub.ColonyPodCost;
-						buildSite.constructed = true;
-					}
-					else
-					{
-						buildSite.assigned = false;
-					}
-
-					buildSite = null;
-					task = Task.None;
-					//Check if a new building exists to work on, create one if not
-
-					//If the progress is not complete, the build on the building
-
-					//otherwise mark it complete and terminate task
-				}
-				break;
-			//DropOff
-			case Task.DropOff:
-				//we're only ever going to drop off resources at the colonyHub
-				if(target != GM.GetComponent<Node>())
-				{
-					target = GM.GetComponent<Node>();
-				}
-				
-				//determine if were near the mineral node
-				if ((transform.position - target.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position)).magnitude < arrivalDist)
-				{
-					GM.mineralCount += inventory;
-					inventory = 0;
-					task = Task.None;
-				}
-				break;
-			//Gather
 			case Task.Attack:
 				//if we have a mineral node and our inventory isn't full
-				if(target.GetComponent<MineralNode>() != null && inventory < carryCapacity)
+				if(target.GetComponent<Component>() != null)
 				{
 					//determine if were near the mineral node
 					if ((transform.position - target.position).magnitude < arrivalDist)
 					{
 						//gather
-						if(!Gather(target.GetComponent<MineralNode>()))
+						if(!Attack(target.GetComponent<Component>()))
 						{
 							task = Task.DropOff;
 						}
 					}
-					//otherwise
-						
-						//if we have a path, follow it
 
-						//if not, find one
 				}
-				//if we don't have a mineral node
-				else if (target.GetComponent<MineralNode>() == null && target.GetComponent<ColonyHub>() == null)
+				//if we don't have an attack target
+				else if (target.GetComponent<Component>() == null && target.GetComponent<ColonyHub>() == null)
 				{
 					//find one or explore
-					if ((target = GM.GetOpenMineralNode().GetComponent<Node>()) != null)
+					if ((target = GM.GetTargetComponent().GetComponent<Node>()) != null)
 					{
 						task = Task.Attack;
 					}
@@ -222,13 +151,7 @@ public class Minion : Entity {
 						task = Task.Explore;
 					}
 				}
-				//if the inventory is full
-				else if (inventory >= carryCapacity)
-				{
-					//return to base
-					target = GM.GetComponent<Node>();
-					task = Task.DropOff;
-				}
+
 				break;
 			}
 
@@ -282,24 +205,15 @@ public class Minion : Entity {
             }
         }
 
-		Transform minerals = transform.FindChild("minerals");
-
-		for (int m = 0; m < minerals.childCount; m++)
-		{
-			minerals.GetChild(m).GetComponent<MeshRenderer>().enabled = (inventory/carryCapacity > m/minerals.childCount);
-		}
-		
-
 		base.Update();
 	}
 
-	public bool Gather(MineralNode node)
+	public bool Attack(Component node)
 	{
-		if(node.minerals > 0)
+		if(node.health > 0)
 		{
 			stuckCount = 0;
-			node.minerals -= node.yieldRate * Time.deltaTime;
-			inventory += node.yieldRate * Time.deltaTime;
+			node.health -= attack * Time.deltaTime;
 			return true;
 		}
 		return false;
@@ -319,7 +233,7 @@ public class Minion : Entity {
 		//If this line intersects the terrain, it is obstructed and we move on
 		if (hit.collider != null)
 		{
-			return !(hit.collider.GetType() == typeof(TerrainCollider));
+			return !(hit.collider.GetType() == typeof(TerrainCollider) || hit.collider.CompareTag("Solid"));
 		}
 
 		return true;
