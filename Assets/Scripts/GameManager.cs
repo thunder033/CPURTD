@@ -3,15 +3,21 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-    public GameObject[] minions;
+    public Minion[] minions
+    {
+        get
+        {
+            return FindObjectsOfType<Minion>();
+        }
+    }
 
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+	    
 	}
 }
