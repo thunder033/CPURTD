@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
+[RequireComponent(typeof(OpsHub))]
 public class Spawner : MonoBehaviour {
 
     public GameObject minionPrefab;
-    public GameManager manager;
+    public OpsHub hub;
     public float spawnRate;
     public float spawnCoolDown;
 
@@ -17,11 +19,16 @@ public class Spawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         spawnCoolDown -= Time.deltaTime;
-        if (spawnCoolDown < 0)
-        {
+        if (Input.GetKeyDown(KeyCode.S)) {
+            Spawn<Minion>();
+        }
+	}
+
+    public void Spawn<T>() where T : Minion {
+        if (spawnCoolDown < 0 && hub.getBytes() >= Minion.BytesCost) {
             GameObject newMinion = Instantiate(minionPrefab);
             newMinion.transform.position = gameObject.transform.position;
             spawnCoolDown = spawnRate;
         }
-	}
+    }
 }

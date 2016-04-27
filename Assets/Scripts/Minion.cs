@@ -14,6 +14,8 @@ public enum Task
 
 public class Minion : Entity {
 
+    public static float BytesCost = 50;
+
 	public float carryCapacity;
 	public float attack;
 
@@ -39,7 +41,7 @@ public class Minion : Entity {
 	public Task task;
 	private Path path;
 
-	private ColonyHub GM;
+	private OpsHub GM;
 
 	private GameObject[] obstacles;
 
@@ -60,7 +62,7 @@ public class Minion : Entity {
 
 		base.Start();
 		//gm = GameObject.Find("MainGO").GetComponent<GameManager>();
-		GM = GameObject.Find("GameManager").GetComponent<ColonyHub>();
+		GM = GameObject.Find("GameManager").GetComponent<OpsHub>();
         obstacles = GameObject.FindGameObjectsWithTag("Solid");
 
 		task = Task.None;
@@ -139,7 +141,7 @@ public class Minion : Entity {
 
 				}
 				//if we don't have an attack target
-				else if (target.GetComponent<Component>() == null && target.GetComponent<ColonyHub>() == null)
+				else if (target.GetComponent<Component>() == null && target.GetComponent<OpsHub>() == null)
 				{
 					//find one or explore
 					if ((target = GM.GetTargetComponent().GetComponent<Node>()) != null)

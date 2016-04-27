@@ -38,7 +38,7 @@ public class Tower : MonoBehaviour {
 	void Update () {
         if (curState == TowerState.notShooting && manager.minions.Count() > 0)
         {
-            Minion closestDrone = manager.minions.OrderBy(a => Vector3.Distance(a.transform.position, gameObject.transform.position)).First();
+            Minion closestDrone = FindObjectsOfType<Minion>().OrderBy(a => Vector3.Distance(a.transform.position, gameObject.transform.position)).First();
             if (closestDrone != null && (Vector3.Distance(closestDrone.transform.position, gameObject.transform.position)) <= range)
             {
                 attack.Attack(closestDrone.gameObject);

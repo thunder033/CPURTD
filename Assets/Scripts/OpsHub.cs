@@ -2,49 +2,32 @@
 using System.Collections;
 using System;
 
-public class ColonyHub : MonoBehaviour {
-
-	public float mineralCount;
+public class OpsHub : MonoBehaviour {
 
 	public GameObject[] waypoints;
 	private GameObject[] targetComponents;
 
-	public int droneSpawnCount = 5;
+    private float bytes;
+    public float bitRate;
 
-	Camera[] cameras;
-	int curCameraIndex;
+    public int droneSpawnCount = 5;
 
-	public GameObject[] obstacles;
+    public GameObject[] obstacles;
 
 	// Use this for initialization
 	void Start () {
 		//the nodes for pathfinding
 		waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
-		cameras = FindObjectsOfType<Camera>();
 	}
+
+    public float getBytes() {
+        return bytes;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		//switch camera on space bar press
-		if(Input.GetKeyDown("space"))
-		{
-			if(curCameraIndex++ >= cameras.Length)
-			{
-				curCameraIndex = 0;
-			}
-
-			for (int c = 0; c < cameras.Length; c++)
-			{
-				cameras[c].enabled = false;
-				cameras[c].tag = "Untagged";
-
-				if(c == curCameraIndex)
-				{
-					cameras[c].enabled = true;
-					cameras[c].tag = "MainCamera";
-				}
-			}
-		}
+        //Generate Points
+        bytes += bitRate * Time.deltaTime;
 
 		//find obstacles
 		obstacles = GameObject.FindGameObjectsWithTag("Solid");
