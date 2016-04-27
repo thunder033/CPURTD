@@ -45,23 +45,24 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\BuildSite.cs" />
-     <Compile Include="Assets\Scripts\CameraManager.cs" />
-     <Compile Include="Assets\Scripts\ColonyPod.cs" />
-     <Compile Include="Assets\Scripts\Component.cs" />
-     <Compile Include="Assets\Scripts\Entity.cs" />
-     <Compile Include="Assets\Scripts\FixedCamera.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\Lazer.cs" />
-     <Compile Include="Assets\Scripts\Minion.cs" />
-     <Compile Include="Assets\Scripts\MoveCamera.cs" />
-     <Compile Include="Assets\Scripts\Node.cs" />
-     <Compile Include="Assets\Scripts\Obstacle.cs" />
-     <Compile Include="Assets\Scripts\OpsHub.cs" />
-     <Compile Include="Assets\Scripts\Path.cs" />
-     <Compile Include="Assets\Scripts\PathNode.cs" />
-     <Compile Include="Assets\Scripts\Spawner.cs" />
-     <Compile Include="Assets\Scripts\Tower.cs" />
+     <Compile Include="Assets\Scripts\Camera\CameraManager.cs" />
+     <Compile Include="Assets\Scripts\Camera\FixedCamera.cs" />
+     <Compile Include="Assets\Scripts\Camera\MoveCamera.cs" />
+     <Compile Include="Assets\Scripts\Core\Entity.cs" />
+     <Compile Include="Assets\Scripts\Core\Node.cs" />
+     <Compile Include="Assets\Scripts\Core\Obstacle.cs" />
+     <Compile Include="Assets\Scripts\Core\Path.cs" />
+     <Compile Include="Assets\Scripts\Core\PathNode.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\BuildSite.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\ColonyPod.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\Component.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\Lazer.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\Minion.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\OpsHub.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\Spawner.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\Tower.cs" />
+     <Compile Include="Assets\Scripts\UI\ByteCount.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
