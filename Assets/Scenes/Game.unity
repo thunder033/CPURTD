@@ -180,61 +180,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
---- !u!1 &547227413
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 547227415}
-  - 114: {fileID: 547227414}
-  - 114: {fileID: 547227416}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &547227414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 547227413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5056626a26e260e419c78403d7208808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &547227415
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 547227413}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 160.303055, y: -9.15122986, z: 157.683151}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
---- !u!114 &547227416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 547227413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1a6839f471e4464d9e0e816afec4d6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints: []
-  bitRate: 0
-  droneSpawnCount: 5
-  obstacles: []
 --- !u!1 &715791929
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,7 +769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f37648902a46b4bb43079ce18e9d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  baseHealth: 0
   yieldRate: 2
 --- !u!23 &1204063463
 MeshRenderer:
@@ -882,7 +827,7 @@ Transform:
   m_LocalScale: {x: 24.4521046, y: 24.4520836, z: 24.4520836}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
 --- !u!1 &1272031508
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,7 +901,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
 --- !u!1 &1346056114
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,7 +1146,7 @@ Transform:
   m_LocalScale: {x: 6.9830265, y: 29.77318, z: 232.649887}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
 --- !u!1 &1364795998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,7 +1249,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -618, y: 234}
+  m_AnchoredPosition: {x: -400, y: 269}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1427939337
@@ -1440,7 +1385,7 @@ RectTransform:
   m_Children:
   - {fileID: 1427939336}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1630,7 +1575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minionPrefab: {fileID: 102614, guid: 09575f4f2d613e44da212ebfccf15902, type: 2}
-  hub: {fileID: 0}
+  hub: {fileID: 1498451832}
   spawnRate: 0
   spawnCoolDown: 0
 --- !u!114 &1498451832
@@ -1708,7 +1653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d5c57205629d949b3d6c963bec4291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 547227414}
+  manager: {fileID: 0}
   towerIndicator: {fileID: 715791929}
   range: 0
   attackSpeed: 0
