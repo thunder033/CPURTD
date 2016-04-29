@@ -12,7 +12,7 @@ public enum Task
 	DropOff
 }
 
-public class Minion : Entity {
+public class Minion : SmartEntity {
 
     public static float BytesCost = 50;
 
@@ -62,7 +62,7 @@ public class Minion : Entity {
 
 		base.Start();
 		//gm = GameObject.Find("MainGO").GetComponent<GameManager>();
-		GM = GameObject.Find("GameManager").GetComponent<OpsHub>();
+		GM = GameObject.Find("SpawnPoint").GetComponent<OpsHub>();
         obstacles = GameObject.FindGameObjectsWithTag("Solid");
 
 		task = Task.None;
@@ -71,7 +71,7 @@ public class Minion : Entity {
 	}
 
 	// Update is called once per frame
-	public void Update () {
+	new public void Update () {
 
 
 		if(prevPos == transform.position)
@@ -127,13 +127,13 @@ public class Minion : Entity {
 				break;
 			case Task.Attack:
 				//if we have a mineral node and our inventory isn't full
-				if(target.GetComponent<Component>() != null)
+				if(target.GetComponent<BoardComponent>() != null)
 				{
 					//determine if were near the mineral node
 					if ((transform.position - target.position).magnitude < arrivalDist)
 					{
 						//gather
-						if(!Attack(target.GetComponent<Component>()))
+						if(!Attack(target.GetComponent<BoardComponent>()))
 						{
 							task = Task.DropOff;
 						}
@@ -141,7 +141,7 @@ public class Minion : Entity {
 
 				}
 				//if we don't have an attack target
-				else if (target.GetComponent<Component>() == null && target.GetComponent<OpsHub>() == null)
+				else if (target.GetComponent<BoardComponent>() == null && target.GetComponent<OpsHub>() == null)
 				{
 					//find one or explore
 					if ((target = GM.GetTargetComponent().GetComponent<Node>()) != null)
@@ -210,12 +210,12 @@ public class Minion : Entity {
 		base.Update();
 	}
 
-	public bool Attack(Component node)
+	public bool Attack(BoardComponent node)
 	{
-		if(node.health > 0)
+		if(node.GetHealth() > 0)
 		{
 			stuckCount = 0;
-			node.health -= attack * Time.deltaTime;
+			//node.health -= attack * Time.deltaTime;
 			return true;
 		}
 		return false;

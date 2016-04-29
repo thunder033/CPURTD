@@ -18,7 +18,9 @@ public class Spawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        spawnCoolDown -= Time.deltaTime;
+        if(spawnCoolDown > 0)
+            spawnCoolDown -= Time.deltaTime;
+
         if (Input.GetKeyDown(KeyCode.S)) {
             Spawn<Minion>();
         }
