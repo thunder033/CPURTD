@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(CharacterController))]
 abstract public class SmartEntity : Entity {
 
     public float maxSpeed = 6.0f;

@@ -2,8 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(CharacterController))]
-
 public abstract class Entity : MonoBehaviour {
 
 	public float mass = 1.0f;

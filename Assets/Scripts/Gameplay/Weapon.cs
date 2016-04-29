@@ -9,7 +9,7 @@ enum WeaponState {
 
 public class Weapon : MonoBehaviour {
 
-    Projectile projectilePrefab;
+    public Projectile projectilePrefab;
 
     public float fireRate;
     public float firePower;
