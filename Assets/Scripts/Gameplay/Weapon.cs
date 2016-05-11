@@ -10,6 +10,7 @@ enum WeaponState {
 public class Weapon : MonoBehaviour {
 
     public Projectile projectilePrefab;
+    public Transform spawnPoint;
 
     public float fireRate;
     public float firePower;
@@ -22,8 +23,7 @@ public class Weapon : MonoBehaviour {
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	public void Update () {
         switch (state) {
             case WeaponState.Firing:
                 cooldown = 60.0f / fireRate;
@@ -47,11 +47,19 @@ public class Weapon : MonoBehaviour {
         if(state == WeaponState.Idle) {
             Projectile projectile = Instantiate(projectilePrefab);
 
+            Vector3 spawnPos = spawnPoint == null ? transform.position : spawnPoint.position;
+
             Entity entity = projectile.GetComponent<Entity>();
-            entity.Velocity = transform.forward * firePower / entity.mass;
+            entity.Velocity = transform.forward * (firePower / entity.mass);
+
+            
+            entity.transform.position = spawnPos;
 
             state = WeaponState.Firing;
         }
-        
+    }
+
+    public bool IsReady() {
+        return state == WeaponState.Idle;
     }
 }

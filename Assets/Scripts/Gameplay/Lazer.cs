@@ -2,21 +2,11 @@
 using System.Collections;
 
 [RequireComponent(typeof(Tower))]
+public class Lazer : Weapon, TowerPower {
 
-public class Lazer : MonoBehaviour, TowerPower {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-    public void Attack (GameObject target)
+    public void Attack (Combatant target)
     {
-        Destroy(target);
+        Aim(target);
+        Fire();
     }
 }
