@@ -19,6 +19,7 @@ public class Combatant : MonoBehaviour
     void Start()
     {
         health = baseHealth;
+        HealthBar bar = (HealthBar)Instantiate(Resources.Load("HealthBar"));
     }
 
     // Update is called once per frame
