@@ -14,6 +14,7 @@ public class Weapon : MonoBehaviour {
 
     public float fireRate;
     public float firePower;
+    Combatant target;
 
     float cooldown;
     WeaponState state;
@@ -40,7 +41,8 @@ public class Weapon : MonoBehaviour {
 	}
 
     public void Aim(Combatant target) {
-        transform.LookAt(target.transform);
+        //transform.LookAt(target.transform);
+        this.target = target;
     }
 
     public void Fire() {
@@ -50,7 +52,8 @@ public class Weapon : MonoBehaviour {
             Vector3 spawnPos = spawnPoint == null ? transform.position : spawnPoint.position;
 
             Entity entity = projectile.GetComponent<Entity>();
-            entity.Velocity = transform.forward * (firePower / entity.mass);
+            Vector3 fireDirection = target != null ? (target.transform.position - spawnPoint.position) : transform.forward;
+            entity.Velocity = fireDirection.normalized  * (firePower / entity.mass);
 
             
             entity.transform.position = spawnPos;

@@ -25,7 +25,7 @@ public abstract class Entity : MonoBehaviour {
 
 
 	// Update is called once per frame
-	protected void Update()
+	virtual protected void Update()
 	{
         velocity += acceleration * Time.deltaTime;
         transform.position += velocity * Time.deltaTime;

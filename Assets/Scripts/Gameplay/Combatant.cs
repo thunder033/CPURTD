@@ -55,6 +55,8 @@ public class Combatant : MonoBehaviour
 
         health -= damage;
 
+        Debug.Log("Took Damage: " + PercentHealth());
+
         if (health <= 0)
         {
             Die();
