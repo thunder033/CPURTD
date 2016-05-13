@@ -26,7 +26,7 @@ public class Tower : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        range = 120;
+        range = 60;
         curState = TowerState.notShooting;
         attackSpeed = 3;
         coolDownTimer = attackSpeed;

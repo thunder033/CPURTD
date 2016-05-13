@@ -101,8 +101,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .00499999989, z: -.0599999987}
-  m_LocalScale: {x: .77166909, y: .931715727, z: .954168677}
+  m_LocalPosition: {x: 0, y: 0.005, z: -0.06}
+  m_LocalScale: {x: 0.7716691, y: 0.9317157, z: 0.9541687}
   m_Children: []
   m_Father: {fileID: 417308}
   m_RootOrder: 0
@@ -112,9 +112,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101294}
-  m_LocalRotation: {x: -.500000119, y: -.5, z: .5, w: .49999994}
+  m_LocalRotation: {x: -0.5000001, y: -0.5, z: 0.5, w: 0.49999994}
   m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: .0185259804, y: 1.08869123, z: .213651896}
+  m_LocalScale: {x: 0.01852598, y: 1.0886912, z: 0.2136519}
   m_Children:
   - {fileID: 400378}
   m_Father: {fileID: 430448}
@@ -126,8 +126,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 102614}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 257.351593, y: 2.25522828, z: 146.633896}
-  m_LocalScale: {x: 6.76627445, y: 4.51045656, z: 6.76626873}
+  m_LocalPosition: {x: 257.3516, y: 2.2552283, z: 146.6339}
+  m_LocalScale: {x: 6.7662745, y: 4.5104566, z: 6.7662687}
   m_Children:
   - {fileID: 450350}
   - {fileID: 484506}
@@ -141,8 +141,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .0520000011, z: .537}
-  m_LocalScale: {x: .528027833, y: .528027833, z: .528027833}
+  m_LocalPosition: {x: 0, y: 0.052, z: 0.537}
+  m_LocalScale: {x: 0.52802783, y: 0.52802783, z: 0.52802783}
   m_Children: []
   m_Father: {fileID: 430448}
   m_RootOrder: 0
@@ -153,8 +153,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .00999999978, y: .579999983, z: -.074000001}
-  m_LocalScale: {x: .275215626, y: .528027833, z: .648510814}
+  m_LocalPosition: {x: 0.01, y: 0.58, z: -0.074}
+  m_LocalScale: {x: 0.27521563, y: 0.52802783, z: 0.6485108}
   m_Children: []
   m_Father: {fileID: 430448}
   m_RootOrder: 1
@@ -179,7 +179,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -205,7 +205,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -231,7 +231,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -257,7 +257,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -283,7 +283,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -409,8 +409,8 @@ MonoBehaviour:
   mass: 1
   radius: 1
   gravity: 20
-  maxSpeed: 10
-  maxForce: 3
+  maxSpeed: 50
+  maxForce: 10
   carryCapacity: 0
   attack: 0
   task: 0
@@ -441,11 +441,11 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1
-  m_Radius: .5
+  m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: .300000012
-  m_SkinWidth: .0799999982
-  m_MinMoveDistance: .00100000005
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
