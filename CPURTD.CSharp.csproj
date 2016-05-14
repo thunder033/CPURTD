@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\Gameplay\DamageEffect.cs" />
     <Compile Include="Assets\Scripts\Gameplay\DamageModifier.cs" />
     <Compile Include="Assets\Scripts\Gameplay\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\HomingProjectile.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Lazer.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Minion.cs" />
     <Compile Include="Assets\Scripts\Gameplay\OpsHub.cs" />

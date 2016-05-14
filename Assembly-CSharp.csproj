@@ -6,7 +6,7 @@
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
 	<RootNamespace></RootNamespace>
-	<ProjectGuid>{695AF5C8-1985-864B-4017-39A777898272}</ProjectGuid>
+	<ProjectGuid>{510141AF-E5D5-7AB4-2B51-627351A84C8A}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,6 +45,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Heal.cs" />
      <Compile Include="Assets\Scripts\Camera\CameraManager.cs" />
      <Compile Include="Assets\Scripts\Camera\FixedCamera.cs" />
      <Compile Include="Assets\Scripts\Camera\MoveCamera.cs" />
@@ -53,16 +54,23 @@
      <Compile Include="Assets\Scripts\Core\Obstacle.cs" />
      <Compile Include="Assets\Scripts\Core\Path.cs" />
      <Compile Include="Assets\Scripts\Core\PathNode.cs" />
+     <Compile Include="Assets\Scripts\Core\SmartEntity.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\BoardComponent.cs" />
      <Compile Include="Assets\Scripts\Gameplay\BuildSite.cs" />
      <Compile Include="Assets\Scripts\Gameplay\ColonyPod.cs" />
-     <Compile Include="Assets\Scripts\Gameplay\Component.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\Combatant.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\DamageEffect.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\DamageModifier.cs" />
      <Compile Include="Assets\Scripts\Gameplay\GameManager.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Lazer.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Minion.cs" />
      <Compile Include="Assets\Scripts\Gameplay\OpsHub.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\Projectile.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Spawner.cs" />
      <Compile Include="Assets\Scripts\Gameplay\Tower.cs" />
+     <Compile Include="Assets\Scripts\Gameplay\Weapon.cs" />
      <Compile Include="Assets\Scripts\UI\ByteCount.cs" />
+     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

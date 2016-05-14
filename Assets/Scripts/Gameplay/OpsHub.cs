@@ -8,7 +8,8 @@ public class OpsHub : MonoBehaviour {
 	private GameObject[] targetComponents;
 
     private float bytes;
-    public float bitRate;
+    float bitRate;
+    public float maxBitRate;
 
     public int droneSpawnCount = 5;
 
@@ -20,12 +21,17 @@ public class OpsHub : MonoBehaviour {
 		waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
 	}
 
-    public float getBytes() {
+    public float GetBytes() {
         return bytes;
+    }
+
+    public float GetBitRate() {
+        return bitRate;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        bitRate = maxBitRate + Mathf.PerlinNoise(Time.time * .5f, 0.0F) * (maxBitRate / 5f) - (maxBitRate / 5f);
         //Generate Points
         bytes += bitRate * Time.deltaTime;
 

@@ -11,8 +11,9 @@ GameObject:
   - 33: {fileID: 3309212}
   - 136: {fileID: 13610622}
   - 23: {fileID: 2305668}
-  - 114: {fileID: 11441796}
   - 114: {fileID: 11439334}
+  - 54: {fileID: 5482204}
+  - 114: {fileID: 11452374}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -65,6 +66,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193142}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &5482204
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193142}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &11439334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -78,7 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 25
   type: 0
---- !u!114 &11441796
+--- !u!114 &11452374
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -86,7 +102,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 193142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a404302ff912ae94cb57ac0eecfef680, type: 3}
+  m_Script: {fileID: 11500000, guid: 168986d915a644e47bbf91509ea7ecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mass: 1
@@ -116,6 +132,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: baseDamage
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_UseGravity
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

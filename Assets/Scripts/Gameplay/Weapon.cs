@@ -10,9 +10,11 @@ enum WeaponState {
 public class Weapon : MonoBehaviour {
 
     public Projectile projectilePrefab;
+    public Transform spawnPoint;
 
     public float fireRate;
     public float firePower;
+    Combatant target;
 
     float cooldown;
     WeaponState state;
@@ -22,8 +24,7 @@ public class Weapon : MonoBehaviour {
 	
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	public void Update () {
         switch (state) {
             case WeaponState.Firing:
                 cooldown = 60.0f / fireRate;
@@ -40,18 +41,39 @@ public class Weapon : MonoBehaviour {
 	}
 
     public void Aim(Combatant target) {
-        transform.LookAt(target.transform);
+        //transform.LookAt(target.transform);
+        this.target = target;
     }
 
     public void Fire() {
         if(state == WeaponState.Idle) {
             Projectile projectile = Instantiate(projectilePrefab);
 
+            Vector3 spawnPos = spawnPoint == null ? transform.position : spawnPoint.position;
+
             Entity entity = projectile.GetComponent<Entity>();
-            entity.Velocity = transform.forward * firePower / entity.mass;
+            Vector3 fireDirection = transform.forward;
+            if(target != null) {
+                Vector3 targetPos = target.transform.position;
+                Entity targetEntity = target.GetComponent<Entity>();
+                if (targetEntity != null) {
+                    targetPos += targetEntity.Velocity * 20 * Time.deltaTime;
+                }
+                fireDirection = targetPos - spawnPoint.position;
+            }
+            entity.Velocity = fireDirection.normalized  * (firePower / entity.mass);
+
+            if(projectile.GetComponent<HomingProjectile>() != null) {
+                projectile.GetComponent<HomingProjectile>().SetTarget(target);
+            }
+            
+            entity.transform.position = spawnPos;
 
             state = WeaponState.Firing;
         }
-        
+    }
+
+    public bool IsReady() {
+        return state == WeaponState.Idle;
     }
 }
