@@ -26,9 +26,9 @@ public class Tower : MonoBehaviour {
     Weapon weapon;
     Minion target;
 
-    // Use this for initialization
-    void Start () {
-        range = 120;
+	// Use this for initialization
+	void Start () {
+        range = 60;
         curState = TowerState.notShooting;
         towerIndicator.SetActive(false);
         attack = GetComponent<TowerPower>();
@@ -46,9 +46,9 @@ public class Tower : MonoBehaviour {
             target = minions.OrderBy(a => Vector3.Distance(a.transform.position, gameObject.transform.position)).First();
         }
         else if (weapon.IsReady())
-        {
+            {
             weapon.Fire();
-            towerIndicator.SetActive(true);
+                towerIndicator.SetActive(true);
         }
         else {
             weapon.Aim(target.GetComponent<Combatant>());
