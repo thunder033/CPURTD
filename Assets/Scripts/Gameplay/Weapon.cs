@@ -52,9 +52,20 @@ public class Weapon : MonoBehaviour {
             Vector3 spawnPos = spawnPoint == null ? transform.position : spawnPoint.position;
 
             Entity entity = projectile.GetComponent<Entity>();
-            Vector3 fireDirection = target != null ? (target.transform.position - spawnPoint.position) : transform.forward;
+            Vector3 fireDirection = transform.forward;
+            if(target != null) {
+                Vector3 targetPos = target.transform.position;
+                Entity targetEntity = target.GetComponent<Entity>();
+                if (targetEntity != null) {
+                    targetPos += targetEntity.Velocity * 20 * Time.deltaTime;
+                }
+                fireDirection = targetPos - spawnPoint.position;
+            }
             entity.Velocity = fireDirection.normalized  * (firePower / entity.mass);
 
+            if(projectile.GetComponent<HomingProjectile>() != null) {
+                projectile.GetComponent<HomingProjectile>().SetTarget(target);
+            }
             
             entity.transform.position = spawnPos;
 

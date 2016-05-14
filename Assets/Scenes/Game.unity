@@ -2200,10 +2200,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9622a79872890804db20e07a5b60a387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 11441796, guid: 4bf1c2589db491b4ab5186d78268bff3, type: 2}
+  projectilePrefab: {fileID: 11452374, guid: 4bf1c2589db491b4ab5186d78268bff3, type: 2}
   spawnPoint: {fileID: 715791933}
   fireRate: 60
-  firePower: 500
+  firePower: 800
 --- !u!114 &1681083142
 MonoBehaviour:
   m_ObjectHideFlags: 0

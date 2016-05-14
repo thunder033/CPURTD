@@ -11,9 +11,9 @@ GameObject:
   - 33: {fileID: 3309212}
   - 136: {fileID: 13610622}
   - 23: {fileID: 2305668}
-  - 114: {fileID: 11441796}
   - 114: {fileID: 11439334}
   - 54: {fileID: 5482204}
+  - 114: {fileID: 11452374}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDamage: 25
   type: 0
---- !u!114 &11441796
+--- !u!114 &11452374
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 193142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a404302ff912ae94cb57ac0eecfef680, type: 3}
+  m_Script: {fileID: 11500000, guid: 168986d915a644e47bbf91509ea7ecbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mass: 1
