@@ -15,17 +15,17 @@ public class CameraManager : MonoBehaviour {
 	void Update () {
         //switch camera on space bar press
         if (Input.GetKeyDown("space")) {
-            if (curCameraIndex++ >= cameras.Length) {
+            if (++curCameraIndex >= cameras.Length) {
                 curCameraIndex = 0;
             }
 
             for (int c = 0; c < cameras.Length; c++) {
                 cameras[c].enabled = false;
-                cameras[c].tag = "Untagged";
+                //cameras[c].tag = "Untagged";
 
                 if (c == curCameraIndex) {
                     cameras[c].enabled = true;
-                    cameras[c].tag = "MainCamera";
+                    //cameras[c].tag = "MainCamera";
                 }
             }
         }
