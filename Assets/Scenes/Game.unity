@@ -1284,8 +1284,9 @@ GameObject:
   - 124: {fileID: 1306255047}
   - 92: {fileID: 1306255046}
   - 81: {fileID: 1306255045}
+  - 114: {fileID: 1306255050}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: PerspCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1358,6 +1359,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 28
+--- !u!114 &1306255050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1306255044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d597c9767e09541b7ac2dea13dbd7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSpeed: 4
+  panSpeed: 4
+  zoomSpeed: 4
 --- !u!1001 &1337167127
 Prefab:
   m_ObjectHideFlags: 0
