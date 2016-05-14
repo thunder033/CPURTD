@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour {
 	}
 
     public void Spawn<T>() where T : Minion {
-        if (spawnCoolDown < 0 && hub.getBytes() >= Minion.BytesCost) {
+        if (spawnCoolDown < 0 && hub.GetBytes() >= Minion.BytesCost) {
             GameObject newMinion = Instantiate(minionPrefab);
             newMinion.transform.position = gameObject.transform.position;
             spawnCoolDown = spawnRate;
