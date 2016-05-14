@@ -3,14 +3,7 @@ using System.Collections;
 
 public class HealthBar : MonoBehaviour {
 
-    public Camera camera;
     Combatant combatant;
-
-	// Use this for initialization
-	void Start () {
-        //combatant = GetComponentInParent<Combatant>();
-        camera = GameObject.Find("Main Camera").GetComponent<Camera>();
-	}
 
     public void SetCombatant(Combatant combatant) {
         this.combatant = combatant;
@@ -22,13 +15,12 @@ public class HealthBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.LookAt(camera.transform);
+        transform.LookAt(Camera.main.transform);
         Vector3 rot = transform.localEulerAngles;
         transform.localEulerAngles = new Vector3(0, rot.y + 90, rot.z + 90);
-        //transform.localPosition = new Vector3(0, 2, 0);
 
         if (!HasCombatant()) {
-            //combatant = GetComponentInParent<Combatant>();
+            combatant = GetComponentInParent<Combatant>();
         } else {
             Transform current = transform.FindChild("Current");
             current.localScale = new Vector3(.77f, .95f, combatant.PercentHealth() * .95f);
