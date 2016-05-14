@@ -5,8 +5,8 @@ public class Projectile : Entity {
 
     public Transform explosionPrefab;
 
-    static Vector3 minBounds = new Vector3(-500, -500, -200);
-    static Vector3 maxBounds = new Vector3(500, 500, 300);
+    static Vector3 minBounds = new Vector3(-750, -750, -750);
+    static Vector3 maxBounds = new Vector3(750, 750, 750);
 
     override protected void Update() {
         if(OutsideBounds(transform.position, minBounds, maxBounds)) {
@@ -31,6 +31,7 @@ public class Projectile : Entity {
                 Debug.Log("Apply damage");
                 impactee.TakeDamage(effect);
             }
+            Destroy(gameObject);
         }
 
         if(explosionPrefab != null) {
@@ -40,6 +41,6 @@ public class Projectile : Entity {
             Instantiate(explosionPrefab, pos, rot);
         }
 
-        Destroy(gameObject);
+        
     }
 }
