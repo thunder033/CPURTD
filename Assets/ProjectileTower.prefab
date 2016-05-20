@@ -143,6 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9622a79872890804db20e07a5b60a387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 11452374, guid: 4bf1c2589db491b4ab5186d78268bff3, type: 2}
+  spawnPoint: {fileID: 441848}
+  fireRate: 10
+  firePower: 750
 --- !u!114 &11447340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 0}
+  spawnPoint: {fileID: 0}
   fireRate: 10
   firePower: 35
 --- !u!114 &11482536
@@ -199,10 +204,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   towerIndicator: {fileID: 186770}
-  range: 0
-  attackSpeed: 0
+  range: 200
   curState: 0
-  coolDownTimer: 0
 --- !u!135 &13522650
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -234,7 +237,28 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 11452374, guid: 4bf1c2589db491b4ab5186d78268bff3,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: range
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: fireRate
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: firePower
+      value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 441848}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 165336}

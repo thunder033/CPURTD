@@ -59,7 +59,7 @@ public class Weapon : MonoBehaviour {
                 if (targetEntity != null) {
                     targetPos += targetEntity.Velocity * 20 * Time.deltaTime;
                 }
-                fireDirection = targetPos - spawnPoint.position;
+                fireDirection = targetPos - spawnPos;
             }
             entity.Velocity = fireDirection.normalized  * (firePower / entity.mass);
 
