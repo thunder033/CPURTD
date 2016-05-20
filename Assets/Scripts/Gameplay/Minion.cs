@@ -225,7 +225,7 @@ public class Minion : SmartEntity {
 	{
 		RaycastHit hit;
 
-		float checkHeight = 10;
+		float checkHeight = 21;
 		Vector3 raisedStart = new Vector3(transform.position.x, checkHeight, transform.position.z);
 		Vector3 raisedDest = new Vector3(pos.x, checkHeight, pos.z);
 
