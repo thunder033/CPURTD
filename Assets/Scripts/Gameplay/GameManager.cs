@@ -3,11 +3,11 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 
-    public Minion[] minions
+    public Virus[] minions
     {
         get
         {
-            return FindObjectsOfType<Minion>();
+            return FindObjectsOfType<Virus>();
         }
     }
 

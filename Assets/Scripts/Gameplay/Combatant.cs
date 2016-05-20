@@ -8,6 +8,7 @@ public class Combatant : MonoBehaviour
 
     float health;
     HealthBar healthBar;
+    MeshRenderer renderer;
 
     Weapon weapon {
         get {
@@ -23,12 +24,13 @@ public class Combatant : MonoBehaviour
         healthBar = ((GameObject)Instantiate(Resources.Load("HealthBar"))).GetComponent<HealthBar>();
         healthBar.SetCombatant(this);
         healthBar.transform.localScale = new Vector3(0.5f, 2.0f, 4.0f);
+        renderer = GetComponentInChildren<MeshRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthBar.transform.position = new Vector3(transform.position.x, transform.position.y + GetComponent<MeshRenderer>().bounds.extents.y + 10f, transform.position.z);
+        healthBar.transform.position = new Vector3(transform.position.x, transform.position.y + renderer.bounds.extents.y + 10f, transform.position.z);
     }
 
     public float PercentHealth()

@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(OpsHub))]
 public class Spawner : MonoBehaviour {
 
-    public GameObject minionPrefab;
+    public GameObject virusPrefab;
     public OpsHub hub;
     public float spawnRate;
     public float spawnCoolDown;
@@ -22,15 +22,26 @@ public class Spawner : MonoBehaviour {
             spawnCoolDown -= Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.S)) {
-            Spawn<Minion>();
+            Spawn(Strain.Basic);
         }
 	}
 
-    public void Spawn<T>() where T : Minion {
-        if (spawnCoolDown < 0 && hub.GetBytes() >= Minion.BytesCost) {
-            GameObject newMinion = Instantiate(minionPrefab);
-            newMinion.transform.position = gameObject.transform.position;
+    public void Spawn(Strain strain) {
+        if (spawnCoolDown < 0 && hub.GetBytes() >= (int)strain) {
+            hub.SpendBytes((int)strain);
+            GameObject virus = (GameObject)Instantiate(Resources.Load("Virus" + strain.ToString()));
+            virus.transform.position = gameObject.transform.position;
             spawnCoolDown = spawnRate;
         }
+    }
+
+    public void SpawnBasic() {
+        Spawn(Strain.Basic);
+    }
+    public void SpawnTrojan() {
+        Spawn(Strain.Trojan);
+    }
+    public void SpawnWorm() {
+        Spawn(Strain.Worm);
     }
 }

@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -88,11 +82,11 @@
     <Compile Include="Assets\Scripts\Gameplay\GameManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\HomingProjectile.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Lazer.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Minion.cs" />
     <Compile Include="Assets\Scripts\Gameplay\OpsHub.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Projectile.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Spawner.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Tower.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Virus.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Weapon.cs" />
     <Compile Include="Assets\Scripts\UI\ByteCount.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />

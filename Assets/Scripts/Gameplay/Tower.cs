@@ -24,7 +24,7 @@ public class Tower : MonoBehaviour {
 
     TowerPower attack;
     Weapon weapon;
-    Minion target;
+    Virus target;
 
 	// Use this for initialization
 	void Start () {
@@ -37,7 +37,7 @@ public class Tower : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        var minions = FindObjectsOfType<Minion>();
+        var minions = FindObjectsOfType<Virus>();
 
         if (minions.Count() == 0)
             return;

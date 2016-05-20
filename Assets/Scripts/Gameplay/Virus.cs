@@ -12,14 +12,18 @@ public enum Task
 	DropOff
 }
 
-public class Minion : SmartEntity {
+public enum Strain {
+    Basic = 300,
+    Worm = 500, 
+    Trojan = 700
+}
+
+public class Virus : SmartEntity {
 
     public static float BytesCost = 50;
 
-	public float carryCapacity;
+	public float bytesCost;
 	public float attack;
-
-	private BuildSite buildSite;
 
 	private Node immediateTarget;
 	private Node _target;
@@ -208,6 +212,8 @@ public class Minion : SmartEntity {
         }
 
 		base.Update();
+
+        transform.position = new Vector3(transform.position.x, 1.0f, transform.position.z);
 	}
 
 	public bool Attack(BoardComponent node)

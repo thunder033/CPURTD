@@ -39,6 +39,10 @@ public class OpsHub : MonoBehaviour {
 		obstacles = GameObject.FindGameObjectsWithTag("Solid");
 	}
 
+    public void SpendBytes(int cost) {
+        bytes -= cost;
+    }
+
 	public void SpawnDrones(int numDrones)
 	{
 		float degreeIncrement = 360 / numDrones;
