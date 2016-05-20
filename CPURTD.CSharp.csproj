@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Core\Path.cs" />
     <Compile Include="Assets\Scripts\Core\PathNode.cs" />
     <Compile Include="Assets\Scripts\Core\SmartEntity.cs" />
+    <Compile Include="Assets\Scripts\Core\WayPoint.cs" />
     <Compile Include="Assets\Scripts\Gameplay\BoardComponent.cs" />
     <Compile Include="Assets\Scripts\Gameplay\BuildSite.cs" />
     <Compile Include="Assets\Scripts\Gameplay\ColonyPod.cs" />
