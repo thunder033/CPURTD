@@ -6,10 +6,102 @@ ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
+    100002: coilBase
+    100004: coilGRP
+    100006: innerCoil
+    100008: pTorus10
+    100010: pTorus11
+    100012: pTorus12
+    100014: pTorus13
+    100016: pTorus14
+    100018: pTorus15
+    100020: pTorus16
+    100022: pTorus17
+    100024: pTorus2
+    100026: pTorus3
+    100028: pTorus4
+    100030: pTorus5
+    100032: pTorus6
+    100034: pTorus7
+    100036: pTorus8
+    100038: pTorus9
     400000: //RootNode
+    400002: coilBase
+    400004: coilGRP
+    400006: innerCoil
+    400008: pTorus10
+    400010: pTorus11
+    400012: pTorus12
+    400014: pTorus13
+    400016: pTorus14
+    400018: pTorus15
+    400020: pTorus16
+    400022: pTorus17
+    400024: pTorus2
+    400026: pTorus3
+    400028: pTorus4
+    400030: pTorus5
+    400032: pTorus6
+    400034: pTorus7
+    400036: pTorus8
+    400038: pTorus9
     2300000: //RootNode
+    2300002: coilBase
+    2300004: innerCoil
+    2300006: pTorus10
+    2300008: pTorus11
+    2300010: pTorus12
+    2300012: pTorus13
+    2300014: pTorus14
+    2300016: pTorus15
+    2300018: pTorus16
+    2300020: pTorus17
+    2300022: pTorus2
+    2300024: pTorus3
+    2300026: pTorus4
+    2300028: pTorus5
+    2300030: pTorus6
+    2300032: pTorus7
+    2300034: pTorus8
+    2300036: pTorus9
     3300000: //RootNode
+    3300002: coilBase
+    3300004: innerCoil
+    3300006: pTorus10
+    3300008: pTorus11
+    3300010: pTorus12
+    3300012: pTorus13
+    3300014: pTorus14
+    3300016: pTorus15
+    3300018: pTorus16
+    3300020: pTorus17
+    3300022: pTorus2
+    3300024: pTorus3
+    3300026: pTorus4
+    3300028: pTorus5
+    3300030: pTorus6
+    3300032: pTorus7
+    3300034: pTorus8
+    3300036: pTorus9
     4300000: LaserTower_InductorCoils1
+    4300002: innerCoil
+    4300004: pTorus2
+    4300006: pTorus3
+    4300008: pTorus4
+    4300010: pTorus5
+    4300012: pTorus6
+    4300014: pTorus7
+    4300016: pTorus8
+    4300018: pTorus9
+    4300020: pTorus10
+    4300022: pTorus11
+    4300024: pTorus12
+    4300026: pTorus13
+    4300028: pTorus14
+    4300030: pTorus15
+    4300032: pTorus16
+    4300034: pTorus17
+    4300036: coilBase
   materials:
     importMaterials: 1
     materialName: 0

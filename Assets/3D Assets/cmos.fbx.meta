@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 70d43c54a28b9a14faf02ea43b0a23b8
-timeCreated: 1461897729
+guid: d4cd99630df663848b6ebfbce00ebfb5
+timeCreated: 1463721307
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -9,8 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: AoETower_ClockCrystals
-    4300002: AoETower_ClockCrystals1
+    4300000: cmos
   materials:
     importMaterials: 1
     materialName: 0

@@ -6,10 +6,19 @@ ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
+    100002: RAM 1
+    100004: RAM_Base
     400000: //RootNode
+    400002: RAM 1
+    400004: RAM_Base
     2300000: //RootNode
+    2300002: RAM 1
+    2300004: RAM_Base
     3300000: //RootNode
+    3300002: RAM 1
+    3300004: RAM_Base
     4300000: RAM_Base
+    4300002: RAM
   materials:
     importMaterials: 1
     materialName: 0

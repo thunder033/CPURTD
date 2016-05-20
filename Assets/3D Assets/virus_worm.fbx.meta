@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 70d43c54a28b9a14faf02ea43b0a23b8
-timeCreated: 1461897729
+guid: 4cd73edd95843664f989ba40eed77f14
+timeCreated: 1463721306
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -9,8 +9,9 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: AoETower_ClockCrystals
-    4300002: AoETower_ClockCrystals1
+    4300000: virus_worm
+    7400000: Take 001
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -69,7 +70,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
