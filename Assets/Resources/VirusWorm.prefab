@@ -13,6 +13,8 @@ GameObject:
   - 143: {fileID: 14311004}
   - 114: {fileID: 11413530}
   - 114: {fileID: 11446680}
+  - 114: {fileID: 11495618}
+  - 114: {fileID: 11426016}
   m_Layer: 0
   m_Name: VirusWorm
   m_TagString: Untagged
@@ -145,8 +147,8 @@ MonoBehaviour:
   mass: 1
   radius: 1
   gravity: 20
-  maxSpeed: 15
-  maxForce: 12
+  maxSpeed: 18
+  maxForce: 15
   bytesCost: 0
   attack: 0
   task: 0
@@ -154,6 +156,19 @@ MonoBehaviour:
   avoidWt: 0
   avoidDist: 4
   wanderWt: 8
+--- !u!114 &11426016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac85bafd77a51d46bbc47f7dfa50e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDamage: 15
+  type: 0
 --- !u!114 &11446680
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,6 +181,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseHealth: 75
+--- !u!114 &11495618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8643434f5b697b4daa55580c085ff09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 11452374, guid: 4bf1c2589db491b4ab5186d78268bff3, type: 2}
+  spawnPoint: {fileID: 0}
+  fireRate: 0
+  firePower: 0
 --- !u!136 &13680220
 CapsuleCollider:
   m_ObjectHideFlags: 1

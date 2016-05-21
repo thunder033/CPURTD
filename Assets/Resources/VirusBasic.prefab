@@ -31,6 +31,8 @@ GameObject:
   - 143: {fileID: 14374792}
   - 114: {fileID: 11495740}
   - 114: {fileID: 11463632}
+  - 114: {fileID: 11495614}
+  - 114: {fileID: 11425628}
   m_Layer: 0
   m_Name: VirusBasic
   m_TagString: Untagged
@@ -131,6 +133,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11425628
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac85bafd77a51d46bbc47f7dfa50e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDamage: 20
+  type: 0
 --- !u!114 &11463632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,6 +158,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseHealth: 75
+--- !u!114 &11495614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 199530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8643434f5b697b4daa55580c085ff09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 11452374, guid: 4bf1c2589db491b4ab5186d78268bff3, type: 2}
+  spawnPoint: {fileID: 0}
+  fireRate: 0
+  firePower: 0
 --- !u!114 &11495740
 MonoBehaviour:
   m_ObjectHideFlags: 1

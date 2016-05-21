@@ -9,6 +9,7 @@ public class Combatant : MonoBehaviour
     float health;
     HealthBar healthBar;
     MeshRenderer renderer;
+    bool alive;
 
     Weapon weapon {
         get {
@@ -20,6 +21,7 @@ public class Combatant : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        alive = true;
         health = baseHealth;
         healthBar = ((GameObject)Instantiate(Resources.Load("HealthBar"))).GetComponent<HealthBar>();
         healthBar.SetCombatant(this);
@@ -69,8 +71,12 @@ public class Combatant : MonoBehaviour
         }
     }
 
-    void Die()
+    public void Die()
     {
+        if (!alive)
+            return;
+
+        alive = false;
         Destroy(healthBar.gameObject);
         Destroy(gameObject);
     }

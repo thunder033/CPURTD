@@ -56,6 +56,7 @@ public class Virus : SmartEntity {
 	public float wanderWt = 8.0f;
 
     private float arrivalDist = 7;
+    private float attackDist = 50;
 
 	float stuckCount = 0;
 	float stuckLimit = 50;
@@ -134,7 +135,7 @@ public class Virus : SmartEntity {
 				if(target.GetComponent<BoardComponent>() != null)
 				{
 					//determine if were near the mineral node
-					if ((transform.position - target.position).magnitude < arrivalDist)
+					if ((transform.position - target.position).magnitude < attackDist)
 					{
 						//gather
 						if(!Attack(target.GetComponent<BoardComponent>()))
@@ -218,20 +219,19 @@ public class Virus : SmartEntity {
 
 	public bool Attack(BoardComponent node)
 	{
-		if(node.GetHealth() > 0)
-		{
-			stuckCount = 0;
-			//node.health -= attack * Time.deltaTime;
-			return true;
-		}
-		return false;
-	}
+        //Weapon weapon = GetComponent<Weapon>();
+        //weapon.Aim(node);
+        //weapon.Fire();
+        node.GetComponent<Combatant>().TakeDamage(GetComponent<DamageEffect>());
+        GetComponent<Combatant>().Die();
+        return true;
+    }
 
 	public bool CanSee(Vector3 pos)
 	{
 		RaycastHit hit;
 
-		float checkHeight = 21;
+		float checkHeight = 10;
 		Vector3 raisedStart = new Vector3(transform.position.x, checkHeight, transform.position.z);
 		Vector3 raisedDest = new Vector3(pos.x, checkHeight, pos.z);
 

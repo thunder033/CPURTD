@@ -1,17 +1,19 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BoardComponent : Combatant {
+    public Button winButton;
 
-	public float yieldRate = 2;
+    new public void Die() {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        winButton.gameObject.SetActive(true);
+
+        //base.Die();
+    }
+
+    public void Restart() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

@@ -48,6 +48,7 @@ public class Weapon : MonoBehaviour {
     public void Fire() {
         if(state == WeaponState.Idle) {
             Projectile projectile = Instantiate(projectilePrefab);
+            projectile.origin = GetComponent<Combatant>();
 
             Vector3 spawnPos = spawnPoint == null ? transform.position : spawnPoint.position;
 

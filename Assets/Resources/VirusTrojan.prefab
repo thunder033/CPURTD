@@ -31,6 +31,8 @@ GameObject:
   - 143: {fileID: 14348542}
   - 114: {fileID: 11405924}
   - 114: {fileID: 11485420}
+  - 114: {fileID: 11434538}
+  - 114: {fileID: 11413756}
   m_Layer: 0
   m_Name: VirusTrojan
   m_TagString: Untagged
@@ -145,7 +147,7 @@ MonoBehaviour:
   mass: 1
   radius: 1
   gravity: 20
-  maxSpeed: 15
+  maxSpeed: 11
   maxForce: 12
   bytesCost: 0
   attack: 0
@@ -154,6 +156,34 @@ MonoBehaviour:
   avoidWt: 0
   avoidDist: 4
   wanderWt: 8
+--- !u!114 &11413756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8643434f5b697b4daa55580c085ff09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 11452374, guid: 4bf1c2589db491b4ab5186d78268bff3, type: 2}
+  spawnPoint: {fileID: 0}
+  fireRate: 0
+  firePower: 0
+--- !u!114 &11434538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac85bafd77a51d46bbc47f7dfa50e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDamage: 25
+  type: 0
 --- !u!114 &11485420
 MonoBehaviour:
   m_ObjectHideFlags: 1

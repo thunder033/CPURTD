@@ -8,6 +8,8 @@ public class Projectile : Entity {
     static Vector3 minBounds = new Vector3(-750, -750, -750);
     static Vector3 maxBounds = new Vector3(750, 750, 750);
 
+    public Combatant origin;
+
     override protected void Update() {
         if(OutsideBounds(transform.position, minBounds, maxBounds)) {
             Debug.Log("Destroy at " + transform.position);
@@ -26,19 +28,20 @@ public class Projectile : Entity {
         Combatant impactee = collision.collider.GetComponent<Combatant>();
         Debug.Log("Impacted object");
 
-        if(impactee != null) {
+        if(impactee != null && impactee != origin) {
             foreach(DamageEffect effect in GetComponents<DamageEffect>()) {
                 Debug.Log("Apply damage");
                 impactee.TakeDamage(effect);
             }
-            Destroy(gameObject);
-        }
 
-        if(explosionPrefab != null) {
-            ContactPoint contact = collision.contacts[0];
-            Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
-            Vector3 pos = contact.point;
-            Instantiate(explosionPrefab, pos, rot);
+            if (explosionPrefab != null) {
+                ContactPoint contact = collision.contacts[0];
+                Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+                Vector3 pos = contact.point;
+                Instantiate(explosionPrefab, pos, rot);
+            }
+
+            Destroy(gameObject);
         }
 
         
